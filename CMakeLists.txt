@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.18)
 
 project(feather
   VERSION "2.8.1"
-  DESCRIPTION "A free Monero desktop wallet"
+  DESCRIPTION "A free Morelo desktop wallet"
   LANGUAGES CXX C ASM
 )
 
@@ -10,10 +10,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PACKAGE_NAME ${PROJECT_NAME})
-set(PACKAGE_BUGREPORT "https://github.com/feather-wallet/feather/issues")
+set(PACKAGE_BUGREPORT "https://github.com/morelonetwork/feather-morelo/issues")
 set(PACKAGE_URL "https://featherwallet.org/")
 set(COPYRIGHT_YEAR "2025")
-set(COPYRIGHT_HOLDERS "The Monero Project")
+set(COPYRIGHT_HOLDERS "Morelo Network")
 
 cmake_policy(SET CMP0074 NEW)
 
@@ -50,7 +50,7 @@ if(DEBUG)
     set(CMAKE_VERBOSE_MAKEFILE ON)
 endif()
 
-# Monero configuration
+# Morelo configuration
 set(BUILD_GUI_DEPS ON)
 set(BUILD_64 ON)
 set(USE_SINGLE_BUILDDIR ON)
@@ -68,17 +68,17 @@ endif()
 include(CMakePackageConfigHelpers)
 
 #### Dependencies ####
-# Monero
-if (NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/monero/CMakeLists.txt")
-    message(FATAL_ERROR "'monero/CMakeLists.txt' does not exist, did you forget to:\ngit submodule update --init --recursive --progress")
+# Morelo
+if (NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/morelo/CMakeLists.txt")
+    message(FATAL_ERROR "'morelo/CMakeLists.txt' does not exist, did you forget to:\ngit submodule update --init --recursive --progress")
 endif()
-add_subdirectory(monero EXCLUDE_FROM_ALL)
-get_directory_property(ARCH_WIDTH DIRECTORY "monero" DEFINITION ARCH_WIDTH)
-get_directory_property(DEVICE_TREZOR_READY DIRECTORY "monero" DEFINITION DEVICE_TREZOR_READY)
-get_directory_property(TREZOR_DEP_LIBS DIRECTORY "monero" DEFINITION TREZOR_DEP_LIBS)
-get_directory_property(OPENBSD DIRECTORY "monero" DEFINITION OPENBSD)
-get_directory_property(FREEBSD DIRECTORY "monero" DEFINITION FREEBSD)
-get_directory_property(DRAGONFLY DIRECTORY "monero" DEFINITION DRAGONFLY)
+add_subdirectory(morelo EXCLUDE_FROM_ALL)
+get_directory_property(ARCH_WIDTH DIRECTORY "morelo" DEFINITION ARCH_WIDTH)
+get_directory_property(DEVICE_TREZOR_READY DIRECTORY "morelo" DEFINITION DEVICE_TREZOR_READY)
+get_directory_property(TREZOR_DEP_LIBS DIRECTORY "morelo" DEFINITION TREZOR_DEP_LIBS)
+get_directory_property(OPENBSD DIRECTORY "morelo" DEFINITION OPENBSD)
+get_directory_property(FREEBSD DIRECTORY "morelo" DEFINITION FREEBSD)
+get_directory_property(DRAGONFLY DIRECTORY "morelo" DEFINITION DRAGONFLY)
 
 # pthread
 find_package(Threads REQUIRED)
